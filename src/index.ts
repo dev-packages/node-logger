@@ -18,7 +18,7 @@ const utilFormatter = () => {
       const labelOption = args[args.length - 1][LABEL] ? args[args.length - 1] : undefined;
       if (labelOption) {
         info[LABEL] = labelOption[LABEL];
-        info.message = util.format(info.message, ...args.filter((arg) => arg !== labelOption));
+        info.message = `[${labelOption[LABEL]}]: ${util.format(info.message, ...args.filter((arg) => arg !== labelOption))}`;
       } else {
         info.message = util.format(info.message, ...args);
       }
@@ -32,7 +32,7 @@ const consoleFormatter = format.combine(
   format.timestamp({format: 'YYYY-MM-DD HH:mm:ss.SSS'}),
   utilFormatter(),
   format.colorize(),
-  format.printf(({ timestamp, level, message, [LABEL]: label }) => `[${timestamp}] [${level.toUpperCase()}] [${label || '-'}]: ${message}`),
+  format.printf(({ timestamp, level, message }) => `[${timestamp}] [${level}] ${message}`),
 );
 
 const fileFormatter = format.combine(

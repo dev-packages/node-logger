@@ -40,7 +40,7 @@ const utilFormatter = () => {
             const labelOption = args[args.length - 1][LABEL] ? args[args.length - 1] : undefined;
             if (labelOption) {
                 info[LABEL] = labelOption[LABEL];
-                info.message = util.format(info.message, ...args.filter((arg) => arg !== labelOption));
+                info.message = `[${labelOption[LABEL]}]: ${util.format(info.message, ...args.filter((arg) => arg !== labelOption))}`;
             }
             else {
                 info.message = util.format(info.message, ...args);
@@ -49,7 +49,7 @@ const utilFormatter = () => {
         }
     };
 };
-const consoleFormatter = winston_1.format.combine(winston_1.format.timestamp({ format: 'YYYY-MM-DD HH:mm:ss.SSS' }), utilFormatter(), winston_1.format.colorize(), winston_1.format.printf(({ timestamp, level, message, [LABEL]: label }) => `[${timestamp}] [${level.toUpperCase()}] [${label || '-'}]: ${message}`));
+const consoleFormatter = winston_1.format.combine(winston_1.format.timestamp({ format: 'YYYY-MM-DD HH:mm:ss.SSS' }), utilFormatter(), winston_1.format.colorize(), winston_1.format.printf(({ timestamp, level, message }) => `[${timestamp}] [${level}] ${message}`));
 const fileFormatter = winston_1.format.combine(winston_1.format.timestamp({
     format: () => new Date().toISOString()
 }), utilFormatter(), winston_1.format.json());
