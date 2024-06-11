@@ -5,11 +5,11 @@ export declare class StaticLogger {
     private static base;
     constructor(label: string);
     static error(...args: any[]): void;
-    static warn(...args: any[]): void;
-    static info(...args: any[]): void;
-    static http(...args: any[]): void;
-    static verbose(...args: any[]): void;
-    static debug(...args: any[]): void;
-    static silly(...args: any[]): void;
+    warn(...args: any[]): void;
+    info(...args: any[]): void;
+    http(...args: any[]): void;
+    verbose(...args: any[]): void;
+    debug(...args: any[]): void;
+    silly(...args: any[]): void;
 }
 export declare const appLogger: StaticLogger;

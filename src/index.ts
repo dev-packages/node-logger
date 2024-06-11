@@ -97,37 +97,37 @@ export class StaticLogger {
 
   public static error(...args: any[]): void {
     // @ts-ignore
-    this.base.error(...args, { [LABEL]: this.label });
+    StaticLogger.base.error(...args, { [LABEL]: this.label });
   }
 
-  public static warn(...args: any[]): void {
+  public warn(...args: any[]): void {
     // @ts-ignore
-    this.base.warn(...args, { [LABEL]: this.label });
+    StaticLogger.base.warn(...args, { [LABEL]: this.label });
   }
 
-  public static info(...args: any[]): void {
+  public info(...args: any[]): void {
     // @ts-ignore
-    this.base.info(...args, { [LABEL]: this.label });
+    StaticLogger.base.info(...args, { [LABEL]: this.label });
   }
 
-  public static http(...args: any[]): void {
+  public http(...args: any[]): void {
     // @ts-ignore
-    this.base.http(...args, { [LABEL]: this.label });
+    StaticLogger.base.http(...args, { [LABEL]: this.label });
   }
 
-  public static verbose(...args: any[]): void {
+  public verbose(...args: any[]): void {
     // @ts-ignore
-    this.base.verbose(...args, { [LABEL]: this.label });
+    StaticLogger.base.verbose(...args, { [LABEL]: this.label });
   }
 
-  public static debug(...args: any[]): void {
+  public debug(...args: any[]): void {
     // @ts-ignore
-    this.base.debug(...args, { [LABEL]: this.label });
+    StaticLogger.base.debug(...args, { [LABEL]: this.label });
   }
 
-  public static silly(...args: any[]): void {
+  public silly(...args: any[]): void {
     // @ts-ignore
-    this.base.silly(...args, { [LABEL]: this.label });
+    StaticLogger.base.silly(...args, { [LABEL]: this.label });
   }
 
 }

@@ -105,31 +105,31 @@ class StaticLogger {
     }
     static error(...args) {
         // @ts-ignore
-        this.base.error(...args, { [LABEL]: this.label });
+        StaticLogger.base.error(...args, { [LABEL]: this.label });
     }
-    static warn(...args) {
+    warn(...args) {
         // @ts-ignore
-        this.base.warn(...args, { [LABEL]: this.label });
+        StaticLogger.base.warn(...args, { [LABEL]: this.label });
     }
-    static info(...args) {
+    info(...args) {
         // @ts-ignore
-        this.base.info(...args, { [LABEL]: this.label });
+        StaticLogger.base.info(...args, { [LABEL]: this.label });
     }
-    static http(...args) {
+    http(...args) {
         // @ts-ignore
-        this.base.http(...args, { [LABEL]: this.label });
+        StaticLogger.base.http(...args, { [LABEL]: this.label });
     }
-    static verbose(...args) {
+    verbose(...args) {
         // @ts-ignore
-        this.base.verbose(...args, { [LABEL]: this.label });
+        StaticLogger.base.verbose(...args, { [LABEL]: this.label });
     }
-    static debug(...args) {
+    debug(...args) {
         // @ts-ignore
-        this.base.debug(...args, { [LABEL]: this.label });
+        StaticLogger.base.debug(...args, { [LABEL]: this.label });
     }
-    static silly(...args) {
+    silly(...args) {
         // @ts-ignore
-        this.base.silly(...args, { [LABEL]: this.label });
+        StaticLogger.base.silly(...args, { [LABEL]: this.label });
     }
 }
 exports.StaticLogger = StaticLogger;
