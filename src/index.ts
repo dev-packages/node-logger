@@ -43,7 +43,10 @@ const fileFormatter = format.combine(
   format.json(),
 );
 
-export class Logger {
+export type LogLevel = 'silly' | 'debug' | 'verbose' | 'http' | 'info' | 'warn' | 'error';
+
+export class StaticLogger {
+
   private static base = winston.createLogger({
     transports: [
       new winston.transports.Console({
@@ -92,40 +95,41 @@ export class Logger {
 
   constructor(private readonly label: string) {}
 
-  public error(...args: any[]): void {
+  public static error(...args: any[]): void {
     // @ts-ignore
-    Logger.base.error(...args, { [LABEL]: this.label });
+    this.base.error(...args, { [LABEL]: this.label });
   }
 
-  public warn(...args: any[]): void {
+  public static warn(...args: any[]): void {
     // @ts-ignore
-    Logger.base.warn(...args, { [LABEL]: this.label });
+    this.base.warn(...args, { [LABEL]: this.label });
   }
 
-  public info(...args: any[]): void {
+  public static info(...args: any[]): void {
     // @ts-ignore
-    Logger.base.info(...args, { [LABEL]: this.label });
+    this.base.info(...args, { [LABEL]: this.label });
   }
 
-  public http(...args: any[]): void {
+  public static http(...args: any[]): void {
     // @ts-ignore
-    Logger.base.http(...args, { [LABEL]: this.label });
+    this.base.http(...args, { [LABEL]: this.label });
   }
 
-  public verbose(...args: any[]): void {
+  public static verbose(...args: any[]): void {
     // @ts-ignore
-    Logger.base.verbose(...args, { [LABEL]: this.label });
+    this.base.verbose(...args, { [LABEL]: this.label });
   }
 
-  public debug(...args: any[]): void {
+  public static debug(...args: any[]): void {
     // @ts-ignore
-    Logger.base.debug(...args, { [LABEL]: this.label });
+    this.base.debug(...args, { [LABEL]: this.label });
   }
 
-  public silly(...args: any[]): void {
+  public static silly(...args: any[]): void {
     // @ts-ignore
-    Logger.base.silly(...args, { [LABEL]: this.label });
+    this.base.silly(...args, { [LABEL]: this.label });
   }
+
 }
 
-export const appLogger = new Logger('APP');
+export const appLogger = new StaticLogger('APP');

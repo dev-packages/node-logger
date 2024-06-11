@@ -23,7 +23,7 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.appLogger = exports.Logger = void 0;
+exports.appLogger = exports.StaticLogger = void 0;
 const winston_1 = __importStar(require("winston"));
 const util = __importStar(require("node:util"));
 require("winston-daily-rotate-file");
@@ -53,7 +53,7 @@ const consoleFormatter = winston_1.format.combine(winston_1.format.timestamp({ f
 const fileFormatter = winston_1.format.combine(winston_1.format.timestamp({
     format: () => new Date().toISOString()
 }), utilFormatter(), winston_1.format.json());
-class Logger {
+class StaticLogger {
     label;
     static base = winston_1.default.createLogger({
         transports: [
@@ -103,35 +103,35 @@ class Logger {
     constructor(label) {
         this.label = label;
     }
-    error(...args) {
+    static error(...args) {
         // @ts-ignore
-        Logger.base.error(...args, { [LABEL]: this.label });
+        this.base.error(...args, { [LABEL]: this.label });
     }
-    warn(...args) {
+    static warn(...args) {
         // @ts-ignore
-        Logger.base.warn(...args, { [LABEL]: this.label });
+        this.base.warn(...args, { [LABEL]: this.label });
     }
-    info(...args) {
+    static info(...args) {
         // @ts-ignore
-        Logger.base.info(...args, { [LABEL]: this.label });
+        this.base.info(...args, { [LABEL]: this.label });
     }
-    http(...args) {
+    static http(...args) {
         // @ts-ignore
-        Logger.base.http(...args, { [LABEL]: this.label });
+        this.base.http(...args, { [LABEL]: this.label });
     }
-    verbose(...args) {
+    static verbose(...args) {
         // @ts-ignore
-        Logger.base.verbose(...args, { [LABEL]: this.label });
+        this.base.verbose(...args, { [LABEL]: this.label });
     }
-    debug(...args) {
+    static debug(...args) {
         // @ts-ignore
-        Logger.base.debug(...args, { [LABEL]: this.label });
+        this.base.debug(...args, { [LABEL]: this.label });
     }
-    silly(...args) {
+    static silly(...args) {
         // @ts-ignore
-        Logger.base.silly(...args, { [LABEL]: this.label });
+        this.base.silly(...args, { [LABEL]: this.label });
     }
 }
-exports.Logger = Logger;
-exports.appLogger = new Logger('APP');
+exports.StaticLogger = StaticLogger;
+exports.appLogger = new StaticLogger('APP');
 //# sourceMappingURL=index.js.map

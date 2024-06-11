@@ -1,14 +1,15 @@
 import 'winston-daily-rotate-file';
-export declare class Logger {
+export type LogLevel = 'silly' | 'debug' | 'verbose' | 'http' | 'info' | 'warn' | 'error';
+export declare class StaticLogger {
     private readonly label;
     private static base;
     constructor(label: string);
-    error(...args: any[]): void;
-    warn(...args: any[]): void;
-    info(...args: any[]): void;
-    http(...args: any[]): void;
-    verbose(...args: any[]): void;
-    debug(...args: any[]): void;
-    silly(...args: any[]): void;
+    static error(...args: any[]): void;
+    static warn(...args: any[]): void;
+    static info(...args: any[]): void;
+    static http(...args: any[]): void;
+    static verbose(...args: any[]): void;
+    static debug(...args: any[]): void;
+    static silly(...args: any[]): void;
 }
-export declare const appLogger: Logger;
+export declare const appLogger: StaticLogger;
