@@ -103,7 +103,7 @@ class StaticLogger {
     constructor(label) {
         this.label = label;
     }
-    static error(...args) {
+    error(...args) {
         // @ts-ignore
         StaticLogger.base.error(...args, { [LABEL]: this.label });
     }

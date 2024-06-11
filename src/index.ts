@@ -95,7 +95,7 @@ export class StaticLogger {
 
   constructor(private readonly label: string) {}
 
-  public static error(...args: any[]): void {
+  public error(...args: any[]): void {
     // @ts-ignore
     StaticLogger.base.error(...args, { [LABEL]: this.label });
   }

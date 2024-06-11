@@ -4,7 +4,7 @@ export declare class StaticLogger {
     private readonly label;
     private static base;
     constructor(label: string);
-    static error(...args: any[]): void;
+    error(...args: any[]): void;
     warn(...args: any[]): void;
     info(...args: any[]): void;
     http(...args: any[]): void;
