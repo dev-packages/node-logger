@@ -86,6 +86,10 @@ class StaticLogger {
             }),
         ],
         exceptionHandlers: [
+            new winston_1.default.transports.Console({
+                level: 'error',
+                format: consoleFormatter,
+            }),
             new winston_1.default.transports.DailyRotateFile({
                 level: 'error',
                 dirname: 'logs',
