@@ -77,24 +77,24 @@ export class StaticLogger {
         format: fileFormatter,
       }),
     ],
-    exceptionHandlers: [
-      new winston.transports.Console({
-        level: 'error',
-        format: consoleFormatter,
-      }),
-      new winston.transports.DailyRotateFile({
-        level: 'error',
-        dirname: 'logs',
-        filename: 'exception-%DATE%',
-        frequency: '1d',
-        datePattern: 'YYYY-MM-DD',
-        maxSize: '10m',
-        zippedArchive: true,
-        utc: true,
-        extension: '.log',
-        format: fileFormatter,
-      }),
-    ]
+    // exceptionHandlers: [
+    //   new winston.transports.Console({
+    //     level: 'error',
+    //     format: consoleFormatter,
+    //   }),
+    //   new winston.transports.DailyRotateFile({
+    //     level: 'error',
+    //     dirname: 'logs',
+    //     filename: 'exception-%DATE%',
+    //     frequency: '1d',
+    //     datePattern: 'YYYY-MM-DD',
+    //     maxSize: '10m',
+    //     zippedArchive: true,
+    //     utc: true,
+    //     extension: '.log',
+    //     format: fileFormatter,
+    //   }),
+    // ]
   });
 
   constructor(private readonly label: string) {}
